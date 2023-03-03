@@ -35,3 +35,10 @@ def register(request):
                 'errors': form.errors,
             }
             return render(request, 'users/register.html', context)
+
+def users_list_view(request):
+    return render(request, 'users/users_list.html')
+
+def user_profile_view(request):
+    return render(request, 'users/user_profile.html')
+
