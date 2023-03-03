@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+
+<!DOCTYPE html>
 <html lang="en" class="h-100">
 
 <head>
@@ -14,9 +16,9 @@
 	<meta name="format-detection" content="telephone=no">
     <title>Zenix -  Crypto Admin Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
 
@@ -33,29 +35,43 @@
 										<img src="images/logo-full.png" alt="">
 									</div>
                                     <h4 class="text-center mb-4">Sign up your account</h4>
-                                    <form action="index.html">
+                                    {% if errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{errors}}
+                                    </div>
+                                    {% endif %}
+                                    <form action="" method="post">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Username</strong></label>
-                                            <input type="text" class="form-control" placeholder="username">
+                                            <input type="text" class="form-control" placeholder="username" name="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>First name</strong></label>
+                                            <input type="text" class="form-control" placeholder="First name" name="first_name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Last name</strong></label>
+                                            <input type="text" class="form-control" placeholder="Last name" name="last_name">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" placeholder="hello@example.com">
+                                            <input type="email" class="form-control" placeholder="hello@example.com" name="email">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="password1">
+                                            <input type="password" class="form-control" name="password1">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password confirmation</strong></label>
-                                            <input type="password" class="form-control" value="password2">
+                                            <input type="password" class="form-control" name="password2">
                                         </div>
                                         <div class="text-center mt-4">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Already have an account? <a class="text-primary" href="page-login.html">Sign in</a></p>
+                                        <p>Already have an account? <a class="text-primary" href="/users/login/">Sign in</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -70,11 +86,11 @@
 	Scripts
 ***********************************-->
 <!-- Required vendors -->
-<script src="vendor/global/global.min.js"></script>
-<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="js/custom.min.js"></script>
-<script src="js/deznav-init.js"></script>
-<script src="js/demo.js"></script>
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/deznav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
 
 </body>
 </html>
