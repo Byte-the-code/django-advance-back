@@ -1,0 +1,170 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<div class=" form-head d-flex flex-wrap mb-4 align-items-center">
+					<h2 class="text-black mr-auto font-w600 mb-3">Coin Details</h2>
+				</div>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="Coin-selected">
+						<div id="graph-data" style="display: none;">[{"26/02":14406.322580645161}, {"25/02":14776.016129032258}, {"24/02":14708.612903225807}, {"23/02":14641.467741935483}, {"22/02":14722.045161290323}, {"21/02":14829.90322580645}, {"20/02":14897.963133640553}, {"19/02":14951.431451612903}, {"18/02":14933.362007168458}, {"17/02":14945.40322580645}]</div>
+						<div class="row">
+							<div class="col-xl-3 col-xxl-4 mt-4">
+								<div class="card">
+									<div class="card-header pb-0 border-0">
+										<h4 class="mb-0 text-black fs-20">About</h4>
+										<div class="dropdown custom-dropdown mb-0">
+											<div class="btn sharp tp-btn" data-toggle="dropdown">
+												<svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12.0049 13C12.5572 13 13.0049 12.5523 13.0049 12C13.0049 11.4477 12.5572 11 12.0049 11C11.4526 11 11.0049 11.4477 11.0049 12C11.0049 12.5523 11.4526 13 12.0049 13Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+													<path d="M12.0049 6C12.5572 6 13.0049 5.55228 13.0049 5C13.0049 4.44772 12.5572 4 12.0049 4C11.4526 4 11.0049 4.44772 11.0049 5C11.0049 5.55228 11.4526 6 12.0049 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+													<path d="M12.0049 20C12.5572 20 13.0049 19.5523 13.0049 19C13.0049 18.4477 12.5572 18 12.0049 18C11.4526 18 11.0049 18.4477 11.0049 19C11.0049 19.5523 11.4526 20 12.0049 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+											</div>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="javascript:void(0);">Details</a>
+												<a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body height400 dz-scroll" id="about-3">
+										<div class="d-flex align-items-start mb-3 about-coin">
+											<div>
+												<img src="{% static 'images/svg/monero.svg' %}" alt="">
+											</div>
+											<div class="ml-3">
+												<h2 class="font-w600 text-black mb-0 title">Digital Cash</h2>
+												<p class="font-w600 text-black sub-title">XMR</p>
+												<span>1 XMR = 68.48 USD</span>
+											</div>	
+										</div>
+										<p class="fs-14">Dash is an open source cryptocurrency. It is an altcoin that was forked from the Bitcoin protocol. It is also a decentralized autonomous organization (DAO) run by a subset of its users, which are called "masternodes". The currency permits transactions that can be untraceable.</p>
+										<p class="fs-14">Dash is an open source cryptocurrency. It is an altcoin that was forked from the Bitcoin protocol. It is also a decentralized autonomous organization (DAO) run by a subset of its users, which are called "masternodes". The currency permits transactions that can be untraceable.</p>
+										<p class="fs-14">Dash is an open source cryptocurrency. It is an altcoin that was forked from the Bitcoin protocol. It is also a decentralized autonomous organization (DAO) run by a subset of its users, which are called "masternodes". The currency permits transactions that can be untraceable.</p>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-xl-9 col-xxl-8 mt-4">
+								<div class="card">
+									<div class="card-header pb-0 d-block d-sm-flex flex-wrap border-0 align-items-center">
+										<div class="mr-auto mb-3">
+											<h4 class="fs-20 text-black">Coin Chart</h4>
+											<p class="mb-0 fs-12">Lorem ipsum dolor sit amet, consectetur</p>
+										</div>
+									</div>
+									<div class="card-body pb-0 pt-sm-3 pt-0">
+										<div class="row sp20 mb-4 align-items-center">
+											<div class="col-lg-4 col-xxl-4 col-sm-4 d-flex flex-wrap align-items-center">
+												<div class="px-2 info-group">
+													<p class="fs-18 mb-1">Price</p>
+													<h2 class="fs-28 font-w600 text-black">$11,898.15</h2>
+												</div>
+											</div>
+											<div class="d-flex col-lg-8 col-xxl-8 col-sm-8 align-items-center mt-sm-0 mt-3 justify-content-end">
+												<div class="px-2 info-group">
+													<p class="fs-14 mb-1">24h% change</p>
+													<h3 class="fs-20 font-w600"><span class="text-success">1.64%</span>
+													<svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0 7L7.00001 -8.77983e-06L14 7H7.00001H0Z" fill="#2BC155"></path>
+													</svg>
+													</h3>
+												</div>
+												<div class="px-2 info-group">
+													<p class="fs-14 mb-1">Volume (24h)</p>
+													<h3 class="fs-20 font-w600 text-black">$47.22B</h3>
+												</div>
+												<div class="px-2 info-group">
+													<p class="fs-14 mb-1">Trading Volume (24h)</p>
+													<h3 class="fs-20 font-w600 text-black">110 XMR</h3>
+												</div>
+											</div>
+										</div>
+										<div id="chartBarRunning" class="bar-chart"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-xxl-12">
+								<div class="row">
+									<div class="col-sm-6 m-t25">
+										<div class="card">
+											<div class="card-header border-0 pb-0">
+												<h4 class="mb-0 text-black fs-20">Lasts Orders</h4>
+											</div>
+											<div class="card-body p-3">
+												<div class="table-responsive">
+													<table class="table text-center bg-danger-hover tr-rounded order-tbl">
+														<thead>
+															<tr>
+																<th class="text-left">Price</th>
+																<th class="text-center">Amount</th>
+																<th class="text-right">Total</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td class="text-left">82.3</td>
+																<td>0.15</td>
+																<td class="text-right">$134,12</td>
+															</tr>
+															<tr>
+																<td class="text-left">83.9</td>
+																<td>0.18</td>
+																<td class="text-right">$237,31</td>
+															</tr>
+															<tr>
+																<td class="text-left">84.2</td>
+																<td>0.25</td>
+																<td class="text-right">$252,58</td>
+															</tr>
+															<tr>
+																<td class="text-left">86.2</td>
+																<td>0.35</td>
+																<td class="text-right">$126,26</td>
+															</tr>
+															<tr>
+																<td class="text-left">91.6</td>
+																<td>0.75</td>
+																<td class="text-right">$46,92</td>
+															</tr>
+															<tr>
+																<td class="text-left">92.6</td>
+																<td>0.21</td>
+																<td class="text-right">$123,27</td>
+															</tr>
+															<tr>
+																<td class="text-left">93.9</td>
+																<td>0.55</td>
+																<td class="text-right">$212,56</td>
+															</tr>
+															<tr>
+																<td class="text-left">94.2</td>
+																<td>0.18</td>
+																<td class="text-right">$129,26</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+      </div>
+		</div>
+    </div>
+	
+        <!--**********************************
+            Content body end
+        ***********************************-->
+{% endblock %}

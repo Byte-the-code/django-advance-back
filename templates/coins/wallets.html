@@ -1,0 +1,241 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-3 col-xxl-5">
+						<div class="swiper-box">
+							<div class="swiper-container card-swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="card-bx stacked card card-animation">
+											<img src="{% static 'images/card/card1.jpg '%} " alt="">
+											<div class="card-info" id="card-1">
+												<div style="display: none;" class="card_name">{{card.card_name}}</div>
+												<div style="display: none;" class="card_number">{{card.card_number}}</div>
+												<div style="display: none;" class="card_holder">{{card.card_holder}}</div>
+												<div style="display: none;" class="valid_until">{{card.valid_until|date:'m/y'}}</div>
+												<div style="display: none;" class="bank_name">{{card.bank_name}}</div>
+												<div style="display: none;" class="balance">{{card.balance}}</div>
+												<div style="display: none;" class="card_theme">{{card.card_theme}}</div>
+												<p class="mb-1 text-white fs-14">Main Balance</p>
+												<a class="btn btn-danger btn-block mt-4 card-close" href="#">X</a>
+												<div class="d-flex justify-content-between">
+													<h2 class="num-text text-white mb-5 font-w600">$673,412.6</h2>
+													<svg width="36" height="36" viewbox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M19.2744 18.8013H16.0334V23.616H19.2744C19.9286 23.616 20.5354 23.3506 20.9613 22.9053C21.4066 22.4784 21.672 21.8726 21.672 21.1989C21.673 19.8813 20.592 18.8013 19.2744 18.8013Z" fill="white"></path>
+														<path d="M18 0C8.07429 0 0 8.07429 0 18C0 27.9257 8.07429 36 18 36C27.9257 36 36 27.9247 36 18C36 8.07531 27.9247 0 18 0ZM21.6627 26.3355H19.5398V29.6722H17.3129V26.3355H16.0899V29.6722H13.8528V26.3355H9.91954V24.2414H12.0898V11.6928H9.91954V9.59863H13.8528V6.3288H16.0899V9.59863H17.3129V6.3288H19.5398V9.59863H21.4735C22.5535 9.59863 23.5491 10.044 24.2599 10.7547C24.9706 11.4655 25.416 12.4611 25.416 13.5411C25.416 15.6549 23.7477 17.3798 21.6627 17.4744C24.1077 17.4744 26.0794 19.4647 26.0794 21.9096C26.0794 24.3453 24.1087 26.3355 21.6627 26.3355Z" fill="white"></path>
+														<path d="M20.7062 15.8441C21.095 15.4553 21.3316 14.9338 21.3316 14.3465C21.3316 13.1812 20.3842 12.2328 19.2178 12.2328H16.0334V16.4695H19.2178C19.7959 16.4695 20.3266 16.2226 20.7062 15.8441Z" fill="white"></path>
+													</svg>
+												</div>
+												<div class="d-flex">
+													<div class="mr-4 text-white">
+														<p class="fs-12 mb-1 op6">VALID THRU</p>
+														<span>08/21</span>
+													</div>
+													<div class="text-white">
+														<p class="fs-12 mb-1 op6">CARD HOLDER</p>
+														<span>Marquezz Silalahi</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="card-bx stacked card card-animation">
+											<img src="{% static 'images/card/card2.jpg '%}" alt="">
+											<div class="card-info" id="card-2">
+
+												<div style="display: none;" class="card_name">{{card.card_name}}</div>
+												<div style="display: none;" class="card_number">{{card.card_number}}</div>
+												<div style="display: none;" class="card_holder">{{card.card_holder}}</div>
+												<div style="display: none;" class="valid_until">{{card.valid_until|date:'m/y'}}</div>
+												<div style="display: none;" class="bank_name">{{card.bank_name}}</div>
+												<div style="display: none;" class="balance">{{card.balance}}</div>
+												<div style="display: none;" class="card_theme">{{card.card_theme}}</div>
+
+												<p class="fs-14 mb-1 text-white">Main Balance</p>
+												<a class="btn btn-danger btn-block mt-4 card-close" style="z-index:7;" href="#">X</a>
+												<div class="d-flex justify-content-between">
+													<h2 class="num-text text-white mb-5 font-w600">$673,412.66</h2>
+													<svg width="55" height="34" viewbox="0 0 55 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="38.0091" cy="16.7788" r="16.7788" fill="white" fill-opacity="0.67"></circle>
+														<circle cx="17.4636" cy="16.7788" r="16.7788" fill="white" fill-opacity="0.67"></circle>
+													</svg>
+												</div>
+												<div class="d-flex">
+													<div class="mr-4 text-white">
+														<p class="fs-12 mb-1 op6">VALID THRU</p>
+														<span>08/21</span>
+													</div>
+													<div class="text-white">
+														<p class="fs-12 mb-1 op6">CARD HOLDER</p>
+														<span>Marquezz Silalahi</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="card-bx stacked card card-animation">
+											<img src="{% static 'images/card/card3.jpg '%}" alt="">
+											<div class="card-info" id="card-3">				
+												<div style="display: none;" class="card_name">{{card.card_name}}</div>
+												<div style="display: none;" class="card_number">{{card.card_number}}</div>
+												<div style="display: none;" class="card_holder">{{card.card_holder}}</div>
+												<div style="display: none;" class="valid_until">{{card.valid_until|date:'m/y'}}</div>
+												<div style="display: none;" class="bank_name">{{card.bank_name}}</div>
+												<div style="display: none;" class="balance">{{card.balance}}</div>
+												<div style="display: none;" class="card_theme">{{card.card_theme}}</div>
+
+												<p class="mb-1 text-white fs-14">Main Balance</p>
+												<a class="btn btn-danger btn-block mt-4 card-close" href="#">X</a>
+												<div class="d-flex justify-content-between">
+													<h2 class="num-text text-white mb-5 font-w600">$673,412.66</h2>
+													<svg width="55" height="34" viewbox="0 0 55 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="38.0091" cy="16.7788" r="16.7788" fill="white" fill-opacity="0.67"></circle>
+														<circle cx="17.4636" cy="16.7788" r="16.7788" fill="white" fill-opacity="0.67"></circle>
+													</svg>
+												</div>
+												<div class="d-flex">
+													<div class="mr-4 text-white">
+														<p class="fs-12 mb-1 op6">VALID THRU</p>
+														<span>08/21</span>
+													</div>
+													<div class="text-white">
+														<p class="fs-12 mb-1 op6">CARD HOLDER</p>
+														<span>Marquezz Silalahi</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-scrollbar"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-9 col-xxl-7">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="d-block d-sm-flex mb-4">
+									<h4 class="mb-0 text-black fs-20 mr-auto">Card Details</h4>
+								</div>
+							</div>	
+							<div class="col-xl-8">
+								<div class="card">
+									<div class="card-body">
+										<div class="row align-items-end">
+											<div class="col-xl-12 col-lg-12 col-xxl-12">
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="mb-4">
+															<p class="mb-2">Card Name</p>
+															<h4 class="text-black" id="main-balance">Main Balance</h4>
+														</div>
+														<div class="mb-4">
+															<p class="mb-2">Valid Date</p>
+															<h4 class="text-black" id="valid-date">08/21</h4>
+														</div>
+														<div>
+															<p class="mb-2">Card Number</p>
+															<h4 class="text-black" id="card-number">**** **** **** 1234</h4>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="mb-4">
+															<p class="mb-2">Bank Name</p>
+															<h4 class="text-black" id="bank-name">ABC Center Bank</h4>
+														</div>
+														<div class="mb-4">
+															<p class="mb-2">Card Holder</p>
+															<h4 class="text-black" id="card-holder">Marquezz Silalahi</h4>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="d-block d-sm-flex mb-4">
+									<h4 class="mb-0 text-black fs-20 mr-auto">Add new Card</h4>
+								</div>
+							</div>	
+							<div class="col-xl-8">
+								<div class="card">
+									<div class="card-body">
+										<div class="row align-items-end">
+											<div class="col-xl-12 col-lg-12 col-xxl-12">
+												<form action="" method="POST">
+													<div class="row">
+														<div class="col-sm-6">
+																<div class="mb-4">
+																	<label for="inputAddress" for="cardName">Card Name</label>
+																	<input type="text" class="form-control" id="cardName" >
+																</div>
+																<div class="mb-4">
+																	<label for="validDate" for="cardName">Valid Date</label>
+																	<input type="text" id="validDate" class="form-control" />
+																</div>
+																<div class=" mb-2">
+																	<label class="form-label" for="cardNumber">Card number</label>
+																	<input type="text" id="cardNumber" class="form-control" />
+																</div>
+														</div>
+														<div class="col-sm-6">
+															<div class="mb-4">
+																<label class="form-label" for="bankName">Bank Name</label>
+																	<input type="text" id="bankName" class="form-control" />
+															</div>
+															<div class="mb-4">
+																<label class="form-label" for="cardHolder">Card holder</label>
+																	<input type="text" id="cardHolder" class="form-control" />
+															</div>
+															<div>
+																<p class="mb-2">Card Theme</p>
+																<div class="btn-group theme-colors" data-toggle="buttons">
+																	<label class="btn btn-warning btn-sm">
+																		<input type="radio" class="position-absolute invisible" name="options" id="option1" value="option1" checked><i class="las la-check-circle"></i>	
+																	</label>
+																	<label class="btn btn-success btn-sm">
+																		<input type="radio" class="position-absolute invisible" name="options" id="option2" value="option2"> <i class="las la-check-circle"></i>
+																	</label>
+																	<label class="btn btn-info btn-sm">
+																		<input type="radio" class="position-absolute invisible" name="options" id="option3" value="option3"> <i class="las la-check-circle"></i>
+																	</label>
+																	<label class="btn btn-secondary btn-sm">
+																		<input type="radio" class="position-absolute invisible" name="options" id="option4" value="option4"> <i class="las la-check-circle"></i>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<button class="btn btn-primary btn-lg btn-block mt-4" type="submit">
+														Add new Card
+													</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>	
+        <!--**********************************
+            Content body end
+        ***********************************-->
+{% endblock %}

@@ -149,9 +149,9 @@
                         <ul aria-expanded="false">
 							<li><a href="/">Dashboard Light</a></li>
 							
-							<li><a href="my-wallets.html">Wallet</a></li>
-							<li><a href="coin-details.html">Coin Details</a></li>
-							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="/coins/wallets/">Wallet</a></li>
+							<li><a href="/coins/">Coin Details</a></li>
+							<li><a href="/coins/portfolio/">Portfolio</a></li>
 						</ul>
                     </li>
                     <li><a class="ai-icon" href="/users/list/" aria-expanded="false">
@@ -197,7 +197,7 @@
     ***********************************-->
     <!-- Required vendors -->
 		
-	</script><script src="{% static 'vendor/global/global.min.js' %}"></script>
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
 	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
 	<script src="{% static 'vendor/chart.js/Chart.bundle.min.js' %}"></script>
 	
@@ -209,7 +209,13 @@
 	
 	<!-- Dashboard 1 -->
 	<script src="{% static 'js/dashboard/dashboard-1.js' %}"></script>
-	
+	<script src="{% static 'js/dashboard/coin-details.js' %}"></script>
+
+	<!-- momment js is must -->
+    <script src="{% static 'vendor/moment/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+    
+
 	<script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
     <script src="{% static 'js/custom.min.js' %}"></script>
 	<script src="{% static 'js/deznav-init.js' %}"></script>
