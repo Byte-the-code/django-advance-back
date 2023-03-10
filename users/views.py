@@ -10,6 +10,8 @@ from admin_settings.models import Country, Language
 from users.forms import RegisterForm, UserProfileForm
 from users.models import UserProfile
 
+from news.utils import get_random_news
+
 
 
 def login_view(request):
@@ -49,11 +51,15 @@ def users_list_view(request):
 
 def user_profile_view(request):
     if request.method == 'GET':
+        main_news, other_news = get_random_news()
         context = {
             'languages':Language.objects.all(),
             'countries':Country.objects.all(),
+            'main_news':main_news,
+            'other_news':other_news,
         }
         return render(request, 'users/user_profile.html', context=context)
+    
     elif request.method == 'POST':
 
         data = request.POST.copy()
