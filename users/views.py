@@ -83,8 +83,6 @@ def user_profile_view(request):
                 'countries':Country.objects.all(),
             }
             return render(request, 'users/user_profile.html', context=context)
-        
-
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
