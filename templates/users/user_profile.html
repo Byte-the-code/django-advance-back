@@ -69,28 +69,16 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="profile-news">
-											<h5 class="text-primary d-inline">Our Latest News</h5>
-											<div class="media pt-3 pb-3">
-												<img src="images/profile/5.jpg" alt="image" class="mr-3 rounded" width="75">
+                                            <h5 class="text-primary d-inline">Our Latest News</h5>
+                                            {% for news in other_news %}
+                                            <div class="media pt-3 pb-3">
+												<img src="{{news.url_to_image}}" alt="image" class="mr-3 rounded" width="75">
 												<div class="media-body">
-													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
-													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
+													<h5 class="m-b-5"><a href="{{news.url_to_news}}" target="_blank" class="text-black">{{news.title}}</a></h5>
+													<p class="mb-0">{{news.description}}</p>
 												</div>
 											</div>
-											<div class="media pt-3 pb-3">
-												<img src="images/profile/6.jpg" alt="image" class="mr-3 rounded" width="75">
-												<div class="media-body">
-													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
-													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
-												</div>
-											</div>
-											<div class="media pt-3 pb-3">
-												<img src="images/profile/7.jpg" alt="image" class="mr-3 rounded" width="75">
-												<div class="media-body">
-													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
-													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
-												</div>
-											</div>
+                                            {% endfor %}
 										</div>
 									</div>
 								</div>
@@ -175,15 +163,9 @@
                                                 <div class="pt-3">
                                                     <div class="settings-form">
                                                         <h4 class="text-primary">Account Setting</h4>
-
-
-
-
                                                         {% if errors %}
                                                             <h1>{{errors}}</h1>
                                                         {% endif %}
-
-
                                                         <form action="" method="POST" enctype="multipart/form-data">
                                                             {% csrf_token %}
                                                             <div class="form-row">
@@ -278,14 +260,6 @@
                                                             </div>
                                                             <button class="btn btn-primary" type="submit">Update Info</button>
                                                         </form>
-
-
-
-
-
-
-
-
                                                     </div>
                                                 </div>
                                             </div>
