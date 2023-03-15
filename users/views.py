@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.db.models.signals import post_save
@@ -46,9 +47,11 @@ def register(request):
             }
             return render(request, 'users/register.html', context)
 
+@login_required
 def users_list_view(request):
     return render(request, 'users/users_list.html')
 
+@login_required
 def user_profile_view(request):
     if request.method == 'GET':
         main_news, other_news = get_random_news()

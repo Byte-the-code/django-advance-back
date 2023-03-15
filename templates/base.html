@@ -97,7 +97,7 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/pic1.jpg" width="20" alt="">
+                                    <img src="{{request.user.profile.profile_image.url}}" width="20" alt="">
 									<div class="header-info">
 										<span>{{request.user.username}}</span>
 										<small>Super Admin</small>
@@ -135,10 +135,10 @@
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
-						<img src="images/Untitled-1.jpg" alt="">
+						<img src="{{request.user.profile.profile_image.url}}" alt="">
 					</div>
-					<h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-					<h6 class="name"><span class="font-w400">test@email.com</span> </h6>
+					<h5 class="name"><span class="font-w400">Hello,</span> {{request.user.first_name}}</h5>
+					<h6 class="name"><span class="font-w400">{{request.user.email}}</span> </h6>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
