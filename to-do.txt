@@ -1,0 +1,5 @@
+PASOS:
+    Cargar las 4 monedas en el admin y luego ejecutar la funcion para generar las transacciones
+    Agregar los condicionales para las imagenes de las 2 monedas faltantes
+    Conectar las secciones de data ultimas transacciones para las monedas (crear un metodo y usar un bucle en el html)
+    En la ultima seccion, la de recent trades hay que poner los condicionales para ver que SVG mostrar y agregar un dato que sigue hardcodeado
