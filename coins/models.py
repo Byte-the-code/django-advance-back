@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
-from django.db.models import Avg
+from django.db.models import Avg, Count
 from django.db import models
 
 
@@ -41,16 +41,40 @@ class Coin(models.Model):
     def get_last_day(self):
         return self.transactions.all().order_by('-date').first().date.date()
     
-    def get_average_transactions_by_date(self, date):
-        return self.transactions.filter(date__date=date).aggregate(average = Avg('price'))
+    def get_price_by_date(self, date):
+        return self.transactions.filter(date__date=date).aggregate(average = Avg('price'))['average']
     
     def get_last_five_days_data(self):
         data = []
         last_day = self.get_last_day()
         for i in range(1, 6):
-            data.append(self.get_average_transactions_by_date(last_day)['average'])
+            data.append(round(self.get_price_by_date(last_day), 2))
             last_day -= timedelta(days=1)
         return data
+
+    def get_last_day_price(self):
+        last_day = self.get_last_day()
+        return round(self.get_price_by_date(last_day), 2)
+
+        # count = 0
+        # for transaction in last_day_transactions:
+        #     count += transaction.price
+        # return count / len(last_day_transactions)
+
+    def get_performance_of_week(self, end_date):
+        week_price = 0
+        for i in range(0, 7):
+            week_price += self.get_price_by_date(end_date)
+            end_date -= timedelta(days=1)
+        week_price /= 7
+        return week_price, end_date
+
+    def get_performance(self):
+        last_day = self.get_last_day()
+        current_week_price, last_day = self.get_performance_of_week(last_day)
+        last_week_price, last_day = self.get_performance_of_week(last_day)
+        return round(((current_week_price - last_week_price) / (last_week_price))*100, 2)
+
 
 class Transaction(models.Model):
 
