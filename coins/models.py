@@ -75,6 +75,11 @@ class Coin(models.Model):
         last_week_price, last_day = self.get_performance_of_week(last_day)
         return round(((current_week_price - last_week_price) / (last_week_price))*100, 2)
 
+    def get_lasts_transactions(self):
+        if self.transactions.count() == 0:
+            return []
+        return self.transactions.order_by('-date')[:7]
+
 
 class Transaction(models.Model):
 
@@ -95,3 +100,6 @@ class Transaction(models.Model):
     @classmethod
     def get_last_day(cls):
         return cls.objects.all().order_by('-date').first().date.date()
+    
+    def get_total_price(self):
+        return round(self.price * self.amount, 2)
