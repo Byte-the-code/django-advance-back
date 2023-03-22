@@ -154,11 +154,13 @@
 							<li><a href="/coins/portfolio/">Portfolio</a></li>
 						</ul>
                     </li>
-                    <li><a class="ai-icon" href="/users/list/" aria-expanded="false">
-						<i class="flaticon-077-menu-1"></i>
-							<span class="nav-text">Users</span>
-						</a>
-                    </li>
+                    {% if request.user.is_superuser %}
+                        <li><a class="ai-icon" href="/users/list/" aria-expanded="false">
+                            <i class="flaticon-077-menu-1"></i>
+                                <span class="nav-text">Users</span>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
 				<div class="copyright">
 					<p><strong>Zenix Crypto Admin Dashboard</strong> © 2023 All Rights Reserved</p>
@@ -217,6 +219,7 @@
     
 
 	<script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/dashboard/wallet.js' %}"></script>
     <script src="{% static 'js/custom.min.js' %}"></script>
 	<script src="{% static 'js/deznav-init.js' %}"></script>
     <script src="{% static 'js/demo.js' %}"></script>
