@@ -49,3 +49,11 @@ def wallets_view(request):
                 'errors': form.errors,
             }
             return render(request, 'coins/wallets.html', context=context)
+        
+@login_required
+def card_delete(request, pk):
+    card = Card.objects.get(pk=pk)
+    if card.user != request.user:
+        return redirect('wallets')
+    card.delete()
+    return redirect('wallets')
