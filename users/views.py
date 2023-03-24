@@ -5,10 +5,12 @@ from django.db.models.signals import post_save
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.dispatch import receiver
+from django.http import HttpResponse
 
 from admin_settings.models import Country, Language
 
 from users.forms import RegisterForm, UserProfileForm
+from users.utils import generate_user_coin_amount
 from users.models import UserProfile
 
 from news.utils import get_random_news
@@ -89,7 +91,6 @@ def create_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
 
 
-
 @login_required
 def users_list_view(request):
     if not request.user.is_superuser:
@@ -116,3 +117,7 @@ def delete_user_view(request, pk):
         return redirect('index')
     User.objects.get(id=pk).delete()
     return redirect('list')
+
+def generate_user_coins(request):
+    generate_user_coin_amount()
+    return HttpResponse('Data generated!')

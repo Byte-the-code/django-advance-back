@@ -53,6 +53,15 @@ def get_five_days_data():
     
     return context
 
+def get_details_graph_data(coin):
+    context = []
+    last_day =Transaction.get_last_day()
+    for i in range(1, 11):
+        context.append({last_day.strftime('%d/%m'):round(coin.get_price_by_date(last_day), 2)})
+        last_day -= timedelta(days=1)
+    context.reverse()
+    return context
+
 def get_recent_transactions():
     since_day = Transaction.get_last_day() - timedelta(days=2)
     return random.choices(Transaction.objects.filter(date__gte=since_day), k=6) #date >= since_day (Greater than or equal to)

@@ -1,23 +1,17 @@
+import json
 import random
 
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from coins.utils import generate_transactions
-from coins.models import Card
+from coins.utils import generate_transactions, get_details_graph_data
+from coins.models import Card, Coin
 from coins.forms import CardForm
 
-# Create your views here.
-@login_required
-def coin_details_view(request):
-    return render(request, 'coins/coin_details.html')
-
-@login_required
-def portfolio(request):
-    return render(request, 'coins/portfolio.html')
 
 def generate_data(request):
     generate_transactions()
@@ -57,3 +51,22 @@ def card_delete(request, pk):
         return redirect('wallets')
     card.delete()
     return redirect('wallets')
+
+@login_required
+def portfolio(request):
+    coins = Coin.objects.all()
+    for coin in coins:
+        coin.user_amount = round(coin.user.filter(user=request.user).first().amount * coin.get_last_day_price(), 2)
+    context = {
+        'coins': coins
+    }
+    return render(request, 'coins/portfolio.html', context=context)
+
+@login_required
+def coin_details_view(request, pk):
+    coin = get_object_or_404(Coin, pk=pk)
+    context ={
+        'coin': coin,
+        'graph_data': json.dumps(get_details_graph_data(coin)),
+    }
+    return render(request, 'coins/coin_details.html', context=context)

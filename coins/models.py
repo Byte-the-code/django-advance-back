@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
-from django.db.models import Avg, Count
+from django.db.models import Avg, Sum
 from django.db import models
 
 
@@ -81,6 +81,27 @@ class Coin(models.Model):
             return []
         return self.transactions.order_by('-date')[:7]
 
+    def get_performance_of_day(self):
+        last_date = self.get_last_day()
+        last_price = self.get_price_by_date(last_date)
+        before_last_price = self.get_price_by_date(last_date - timedelta(days=1))
+        return round(((last_price - before_last_price) / (before_last_price))*100, 2)
+
+    def get_trading_volume_of_day(self, date):
+        return self.transactions.filter(date__date=date).aggregate(amount = Sum('amount'))['amount']
+
+    def get_trading_volume_of_last_day(self):
+        last_day = self.get_last_day()
+        return int(self.get_trading_volume_of_day(last_day))
+    
+    def get_money_volume_of_day(self, date):
+        return (self.transactions.filter(date__date=date)
+                            .annotate(total_price = models.F('price') * models.F('amount'))
+                            .aggregate(amount = Sum('total_price'))['amount'])
+    
+    def get_money_volume_of_last_day(self):
+        last_day = self.get_last_day()
+        return int(self.get_money_volume_of_day(last_day))
 
 class Transaction(models.Model):
 

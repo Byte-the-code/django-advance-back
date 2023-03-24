@@ -4,7 +4,7 @@ from coins.views import wallets_view, coin_details_view, portfolio, generate_dat
 
 
 urlpatterns = [
-    path('', coin_details_view, name='coin_details'),
+    path('details/<int:pk>/', coin_details_view, name='coin_details'),
     path('wallets/', wallets_view, name='wallets'),
     path('portfolio/', portfolio, name='portfolio'),
     path('generate-data/', generate_data, name='generate_data'),
